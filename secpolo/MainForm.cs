@@ -114,7 +114,11 @@ namespace secpolo {
 
         //URLのドロップ
         private void panelFriend_DragEnter(object sender, DragEventArgs e) {
-            e.Effect = DragDropEffects.All;
+            if (e.Data.GetDataPresent("UniformResourceLocator") || e.Data.GetDataPresent("UniformResourceLocatorW")){
+                e.Effect = DragDropEffects.Link;
+            } else{
+                e.Effect = DragDropEffects.All;
+            }
         }
         private void panelFriend_DragDrop(object sender, DragEventArgs e) {
             var str = (String)e.Data.GetData(DataFormats.Text);
@@ -172,7 +176,8 @@ namespace secpolo {
         private void popupMenuDeleteSpam_Click(object sender, EventArgs e) {
             var oneDat = Selected(listViewSpam);
             if (oneDat != null) {
-                if (DialogResult.OK == MessageBox.Show(String.Format("{0}({1})を削除してよろしいですか?", oneDat.Name, oneDat.Id), "削除確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)) {
+                var dlg = new ConfirmDlg(String.Format("{0}({1})を削除してよろしいですか?", oneDat.Name, oneDat.Id), oneDat.Image,ConfirmDlgMode.OK_CANCEL);
+                if (DialogResult.OK == dlg.ShowDialog()) {
                     _listViewSpam.Remove(oneDat);
                 }
             }

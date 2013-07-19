@@ -81,6 +81,20 @@ namespace secpolo {
 
                 i = tmp.IndexOf("photo.php?fbid=");
                 if (i != -1) {
+                    tmp = tmp.Substring(i + 15);
+
+                    i = tmp.IndexOf("&set=");
+                    if (i != -1) {
+                        tmp = tmp.Substring(i+5);
+                        i = tmp.IndexOf("&");
+                        if (i != -1){
+                            tmp = tmp.Substring(0, i);
+                            var d = tmp.Split('.');
+                            if (d.Count() > 0){
+                                return d[d.Count() - 1];
+                            }
+                        }
+                    }
 
                     return "";
                 }

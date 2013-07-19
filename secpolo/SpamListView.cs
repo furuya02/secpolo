@@ -80,23 +80,28 @@ namespace secpolo {
                 if (oneDat != null){
                     foreach (var a in _ar){
                         if (a.Id == oneDat.Id){
-                            Util.TopMsg(String.Format("{0}({1})は、既に登録済みです", a.Name, a.Id));
+                            ConfirmDlg d = new ConfirmDlg(String.Format("{0}({1})は、既に登録済みです", a.Name, a.Id), a.Image, ConfirmDlgMode.OK);
+                            d.ShowDialog();
                             return;
                         }
                     }
-                    _ar.Add(oneDat);
-                    var item = AddList(oneDat);
-                    item.Selected = true;
+                    var dlg = new ConfirmDlg(String.Format("{0}({1})をスパムデータべスに追加してよろしいですか？", oneDat.Name, oneDat.Id),oneDat.Image,ConfirmDlgMode.OK_CANCEL);
+                    if (DialogResult.OK == dlg.ShowDialog()){
+                        _ar.Add(oneDat);
+                        var item = AddList(oneDat);
+                        item.Selected = true;
+                    }
                 }
             }
         }
 
         void _listView_DragEnter(object sender, DragEventArgs e) {
-            if (e.Data.GetDataPresent("UniformResourceLocator") == true){
+            if (e.Data.GetDataPresent("UniformResourceLocator") || e.Data.GetDataPresent("UniformResourceLocatorW")) {
                 e.Effect = DragDropEffects.Link;
-            } else{
+            } else {
                 e.Effect = DragDropEffects.All;
             }
+
         }
 
 

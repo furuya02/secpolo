@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfirmDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmDlg.Designer.cs">
+      <DependentUpon>ConfirmDlg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facebook.cs" />
     <Compile Include="CreateFriendList.cs" />
     <Compile Include="FacebookAuth.cs" />
@@ -87,6 +93,9 @@
     </Compile>
     <Compile Include="SpamListView.cs" />
     <Compile Include="Util.cs" />
+    <EmbeddedResource Include="ConfirmDlg.resx">
+      <DependentUpon>ConfirmDlg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FindDlg.resx">
       <DependentUpon>FindDlg.cs</DependentUpon>
     </EmbeddedResource>
