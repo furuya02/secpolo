@@ -13,6 +13,7 @@ namespace secpolo {
         private readonly List<OneDat> _ar = new List<OneDat>();
         private Label _label;
         private Panel _panel;
+        private Button _button;
 
         private SpamListView _spanListView;
 
@@ -27,12 +28,18 @@ namespace secpolo {
         public delegate void CompleteDelegate(OneDat oneDat);
         public event CompleteDelegate Complete;
 
-        public FriendListView(ListView listView, Panel panel, Label label, SpamListView spanListView) {
+        public FriendListView(ListView listView, Panel panel, Label label,Button button, SpamListView spanListView){
+
             _listView = listView;
             _listView.HideSelection = false;
             _label = label;
+            _button = button;
             _panel = panel;
             _spanListView = spanListView;
+            
+
+            _button.Click += button_Click;
+            _button.Enabled = false;
 
             _imageList = new ImageList();
             _imageList.ImageSize = new Size(50,50);
@@ -41,7 +48,12 @@ namespace secpolo {
             _listView.LargeImageList = _imageList;
         }
 
+        void button_Click(object sender, EventArgs e) {
+            Stop();
+        }
+
         public void Stop(){
+            _button.Enabled = false;
             _panel.BackColor = _color;
             if (_createFriendList != null) {
                 _createFriendList.Complete -= CreateFriendList_Complete;
@@ -58,6 +70,7 @@ namespace secpolo {
             _target = oneDat;
             _color = _panel.BackColor;
             _panel.BackColor = Color.LightBlue;
+            _button.Enabled = true;
 
             _label.Text =string.Format("「{0}」 の友達　検索開始   スパム={1}",_target.Name,_spamCount);
 
@@ -78,6 +91,7 @@ namespace secpolo {
                 //完了
                 _panel.BackColor = _color;
                 _label.Text = String.Format("「{0}」 の友達 {1}人  スパム {2}", _target.Name,_ar.Count,_spamCount);
+                _button.Enabled = false;
             } else{
                 Add(oneDat);
                 _label.Text = string.Format("「{0}」 の友達 検索中...{1} スパム {2}", _target.Name, _ar.Count,_spamCount);
@@ -106,7 +120,13 @@ namespace secpolo {
             item.SubItems.Add(oneDat.Jpg);
             item.Tag = oneDat;
 
-            if (_spanListView.IsSpam(oneDat.Id)){
+//            if (_spanListView.IsSpam(oneDat.Id)){
+//                item.ForeColor = Color.Red;
+//                item.BackColor = Color.Pink;
+//                item.Font = new Font("Arial", 11, FontStyle.Bold);
+//                _spamCount++;
+//            }
+            if (_spanListView.IsSpam(oneDat)) {
                 item.ForeColor = Color.Red;
                 item.BackColor = Color.Pink;
                 item.Font = new Font("Arial", 11, FontStyle.Bold);

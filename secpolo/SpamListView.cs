@@ -124,14 +124,94 @@ namespace secpolo {
             fs.Close();
         }
 
-        public bool IsSpam(String id){
+//        public bool IsSpam(String id){
+//            foreach (var a in _ar){
+//                if (a.Id == id){
+//                    return true;
+//                }
+//            }
+//            return false;
+//        }
+
+        public bool IsSpam(OneDat o){
+            //if (o.Name.IndexOf("いとう")==0){
+            //    int x = 0;
+            //}
+
             foreach (var a in _ar){
-                if (a.Id == id){
+                if (a.Id == o.Id){
                     return true;
                 }
+//                ImageConverter ic = new ImageConverter();
+//                var byte1 = ConvertImageToJpegBytes(a.Image);
+//                var byte2 = ConvertImageToJpegBytes(o.Image);
+//
+//                int c = 0;
+//                if (byte1.Length == byte2.Length){
+//                    for (int i = 0; i < byte1.Length; i++) {
+//                        if (byte1[i] == byte2[i]) {
+//                            c++;
+//                        }
+//                    }
+//                }
+//                int x = 0;
+//
+
             }
             return false;
         }
+        public static byte[] ConvertImageToJpegBytes(System.Drawing.Image img) {
+            // 入力引数の異常時のエラー処理
+            if (img == null) {
+                return null;
+            }
+
+            // 返却用バイト型配列
+            byte[] ImageBytes;
+
+            // メモリストリームの生成
+            using (System.IO.MemoryStream ms = new System.IO.MemoryStream()) {
+                // Image画像を、Jpeg形式でストリームに保存
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                // ストリームのデーターをバイト型配列に変換
+                ImageBytes = ms.ToArray();
+
+                // ストリームのクローズ
+                ms.Close();
+            }
+
+            return ImageBytes;
+        }
+
+        public static byte[] ConvertImageToBmpBytes(Image img) {
+            // 入力引数の異常時のエラー処理
+            if (img == null) {
+                return null;
+            }
+
+            // 返却用バイト型配列
+            byte[] ImageBytes;
+
+            // メモリストリームの生成
+            using (System.IO.MemoryStream ms = new System.IO.MemoryStream()) {
+                // Image画像を、bmp形式でストリームに保存
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+
+                // ストリームのデーターをバイト型配列に変換
+                ImageBytes = ms.ToArray();
+
+                // ストリームのクローズ
+                ms.Close();
+            }
+            return ImageBytes;
+        }
+
+        
+            //                for (int i = 0; i < byte1.Length; i++){
+            //                    return byte1[i].CompareTo(byte2[i]);
+            //                } 
+            
 
 
         ListViewItem AddList(OneDat oneDat){
@@ -188,6 +268,8 @@ namespace secpolo {
                 if (oneDat.Name.IndexOf(str) == 0){
                     item.Selected = true;
                     item.EnsureVisible();
+                    item.Focused = true;
+                    _listView.Focus();
                     return;
                 }
             }

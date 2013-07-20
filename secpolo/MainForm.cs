@@ -37,10 +37,10 @@ namespace secpolo {
 
             _listViewSpam = new SpamListView(listViewSpam, _facebook);
 
-            _listViewFriend1 = new FriendListView(listViewFriend1, panelFriendList1, labelFriendList1, _listViewSpam);
+            _listViewFriend1 = new FriendListView(listViewFriend1, panelFriendList1, labelFriendList1,buttonFriendList1, _listViewSpam);
             _listViewFriend1.Complete += _listViewFriend_Complete;
 
-            _listViewFriend2 = new FriendListView(listViewFriend2, panelFriendList2, labelFriendList2, _listViewSpam);
+            _listViewFriend2 = new FriendListView(listViewFriend2, panelFriendList2, labelFriendList2,buttonFriendList2, _listViewSpam);
             _listViewFriend2.Complete += _listViewFriend_Complete;
 
 
@@ -231,6 +231,25 @@ namespace secpolo {
                     _listViewFriend2.Find(str);
                     
                 }
+            }
+        }
+        //（FriendList1）ドラッグ開始
+        private void listViewFriend1_ItemDrag(object sender, ItemDragEventArgs e){
+            StartDrag(listViewFriend1);
+        }
+
+        //（FriendList2）ドラッグ開始
+        private void listViewFriend2_ItemDrag(object sender, ItemDragEventArgs e) {
+            StartDrag(listViewFriend2);
+        }
+        //ドラッグ開始
+        void StartDrag(ListView listView){
+            var oneDat = Selected(listView);
+            if (oneDat != null) {
+                var str = String.Format("https://www.facebook.com/profile.php?id={0}", oneDat.Id);
+                var dataObj = new DataObject(DataFormats.Text, str);
+                const DragDropEffects effect = DragDropEffects.Copy | DragDropEffects.Move;
+                listView.DoDragDrop(dataObj, effect);
             }
         }
     }

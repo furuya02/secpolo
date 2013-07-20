@@ -62,7 +62,10 @@ namespace secpolo {
                 //文字列表示
                 Brush b = new SolidBrush(e.ForeColor); ;
                 //スパムアカウントの場合は色を変える
-                if (_spanListView.IsSpam(oneDat.Id)){
+//                if (_spanListView.IsSpam(oneDat.Id)){
+//                    b = new SolidBrush(Color.Red);
+//                }
+                if (_spanListView.IsSpam(oneDat)) {
                     b = new SolidBrush(Color.Red);
                 }
 

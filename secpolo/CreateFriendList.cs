@@ -19,7 +19,8 @@ namespace secpolo {
         public delegate void CompleteDelegate(OneDat oneDat);
         public event CompleteDelegate Complete;
 
-        List<OneDat>_ar = new List<OneDat>(); 
+        List<OneDat>_ar = new List<OneDat>();
+
 
         public CreateFriendList(String url){
             
@@ -120,6 +121,11 @@ namespace secpolo {
                             var jpg = GetJpg(a.OuterHtml);
                             var id = GetId(e3.OuterHtml);
                             var userName = GetUserName(e3.OuterHtml);
+
+                            //この時点でのjpgは100×100なので、50×50を取り直す
+                            //b0.0.2
+                            //return _facebook.CreateOneDat(id);
+
                             return new OneDat(name, userName, id, jpg);
                         }
                     }

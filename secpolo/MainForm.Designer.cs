@@ -24,6 +24,7 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MainMenuFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,6 +40,7 @@
             this.popupMenuBrowse = new System.Windows.Forms.ToolStripMenuItem();
             this.popupMenuFriendList = new System.Windows.Forms.ToolStripMenuItem();
             this.panelFriendList1 = new System.Windows.Forms.Panel();
+            this.buttonFriendList1 = new System.Windows.Forms.Button();
             this.labelFriendList1 = new System.Windows.Forms.Label();
             this.listViewFriend2 = new System.Windows.Forms.ListView();
             this.panelFriendList2 = new System.Windows.Forms.Panel();
@@ -58,6 +60,7 @@
             this.popupMenuSearchFacebook = new System.Windows.Forms.ToolStripMenuItem();
             this.popupMenuGoogle = new System.Windows.Forms.ToolStripMenuItem();
             this.popupMenuDeleteSpam = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonFriendList2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -89,7 +92,7 @@
             this.MainMenuTool});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(708, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(708, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -98,13 +101,13 @@
             this.MainMenuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MainMenuExit});
             this.MainMenuFile.Name = "MainMenuFile";
-            this.MainMenuFile.Size = new System.Drawing.Size(85, 22);
+            this.MainMenuFile.Size = new System.Drawing.Size(70, 20);
             this.MainMenuFile.Text = "ファイル(&F)";
             // 
             // MainMenuExit
             // 
             this.MainMenuExit.Name = "MainMenuExit";
-            this.MainMenuExit.Size = new System.Drawing.Size(118, 22);
+            this.MainMenuExit.Size = new System.Drawing.Size(116, 22);
             this.MainMenuExit.Text = "終了(&X)";
             this.MainMenuExit.Click += new System.EventHandler(this.MainMenuExit_Click);
             // 
@@ -114,14 +117,14 @@
             this.MainMenuSearch,
             this.MainFormFind});
             this.MainMenuTool.Name = "MainMenuTool";
-            this.MainMenuTool.Size = new System.Drawing.Size(74, 22);
+            this.MainMenuTool.Size = new System.Drawing.Size(66, 20);
             this.MainMenuTool.Text = "ツール(&T)";
             // 
             // MainMenuSearch
             // 
             this.MainMenuSearch.Name = "MainMenuSearch";
             this.MainMenuSearch.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.MainMenuSearch.Size = new System.Drawing.Size(221, 22);
+            this.MainMenuSearch.Size = new System.Drawing.Size(218, 22);
             this.MainMenuSearch.Text = "Facdbook検索(&S)";
             this.MainMenuSearch.Click += new System.EventHandler(this.MainMenuSearch_Click);
             // 
@@ -129,7 +132,7 @@
             // 
             this.MainFormFind.Name = "MainFormFind";
             this.MainFormFind.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.MainFormFind.Size = new System.Drawing.Size(221, 22);
+            this.MainFormFind.Size = new System.Drawing.Size(218, 22);
             this.MainFormFind.Text = "検索(&F)";
             this.MainFormFind.Click += new System.EventHandler(this.MainFormFind_Click);
             // 
@@ -138,10 +141,10 @@
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl.Location = new System.Drawing.Point(0, 26);
+            this.tabControl.Location = new System.Drawing.Point(0, 24);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(708, 503);
+            this.tabControl.Size = new System.Drawing.Size(708, 505);
             this.tabControl.TabIndex = 10;
             // 
             // tabPage1
@@ -151,7 +154,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(700, 477);
+            this.tabPage1.Size = new System.Drawing.Size(700, 479);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Friends";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -172,8 +175,8 @@
             // 
             this.splitContainerFriend.Panel2.Controls.Add(this.listViewFriend2);
             this.splitContainerFriend.Panel2.Controls.Add(this.panelFriendList2);
-            this.splitContainerFriend.Size = new System.Drawing.Size(694, 387);
-            this.splitContainerFriend.SplitterDistance = 198;
+            this.splitContainerFriend.Size = new System.Drawing.Size(694, 389);
+            this.splitContainerFriend.SplitterDistance = 199;
             this.splitContainerFriend.TabIndex = 3;
             // 
             // listViewFriend1
@@ -182,9 +185,10 @@
             this.listViewFriend1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewFriend1.Location = new System.Drawing.Point(0, 0);
             this.listViewFriend1.Name = "listViewFriend1";
-            this.listViewFriend1.Size = new System.Drawing.Size(694, 177);
+            this.listViewFriend1.Size = new System.Drawing.Size(694, 170);
             this.listViewFriend1.TabIndex = 2;
             this.listViewFriend1.UseCompatibleStateImageBehavior = false;
+            this.listViewFriend1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.listViewFriend1_ItemDrag);
             this.listViewFriend1.DoubleClick += new System.EventHandler(this.listViewFriend1_DoubleClick);
             // 
             // PopupMenuFriendList1
@@ -193,36 +197,46 @@
             this.popupMenuBrowse,
             this.popupMenuFriendList});
             this.PopupMenuFriendList1.Name = "PopupMenuFriendList1";
-            this.PopupMenuFriendList1.Size = new System.Drawing.Size(142, 48);
+            this.PopupMenuFriendList1.Size = new System.Drawing.Size(140, 48);
             // 
             // popupMenuBrowse
             // 
             this.popupMenuBrowse.Name = "popupMenuBrowse";
-            this.popupMenuBrowse.Size = new System.Drawing.Size(141, 22);
+            this.popupMenuBrowse.Size = new System.Drawing.Size(139, 22);
             this.popupMenuBrowse.Text = "ホーム(&H)";
             this.popupMenuBrowse.Click += new System.EventHandler(this.popupMenuBrowse_Click);
             // 
             // popupMenuFriendList
             // 
             this.popupMenuFriendList.Name = "popupMenuFriendList";
-            this.popupMenuFriendList.Size = new System.Drawing.Size(141, 22);
+            this.popupMenuFriendList.Size = new System.Drawing.Size(139, 22);
             this.popupMenuFriendList.Text = "友達一覧(&F)";
             this.popupMenuFriendList.Click += new System.EventHandler(this.popupMenuFriendList_Click);
             // 
             // panelFriendList1
             // 
             this.panelFriendList1.BackColor = System.Drawing.SystemColors.Control;
+            this.panelFriendList1.Controls.Add(this.buttonFriendList1);
             this.panelFriendList1.Controls.Add(this.labelFriendList1);
             this.panelFriendList1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFriendList1.Location = new System.Drawing.Point(0, 177);
+            this.panelFriendList1.Location = new System.Drawing.Point(0, 170);
             this.panelFriendList1.Name = "panelFriendList1";
-            this.panelFriendList1.Size = new System.Drawing.Size(694, 21);
+            this.panelFriendList1.Size = new System.Drawing.Size(694, 29);
             this.panelFriendList1.TabIndex = 1;
+            // 
+            // buttonFriendList1
+            // 
+            this.buttonFriendList1.Image = ((System.Drawing.Image)(resources.GetObject("buttonFriendList1.Image")));
+            this.buttonFriendList1.Location = new System.Drawing.Point(5, 3);
+            this.buttonFriendList1.Name = "buttonFriendList1";
+            this.buttonFriendList1.Size = new System.Drawing.Size(32, 23);
+            this.buttonFriendList1.TabIndex = 1;
+            this.buttonFriendList1.UseVisualStyleBackColor = true;
             // 
             // labelFriendList1
             // 
             this.labelFriendList1.AutoSize = true;
-            this.labelFriendList1.Location = new System.Drawing.Point(11, 4);
+            this.labelFriendList1.Location = new System.Drawing.Point(43, 8);
             this.labelFriendList1.Name = "labelFriendList1";
             this.labelFriendList1.Size = new System.Drawing.Size(35, 12);
             this.labelFriendList1.TabIndex = 0;
@@ -233,25 +247,27 @@
             this.listViewFriend2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewFriend2.Location = new System.Drawing.Point(0, 0);
             this.listViewFriend2.Name = "listViewFriend2";
-            this.listViewFriend2.Size = new System.Drawing.Size(694, 164);
+            this.listViewFriend2.Size = new System.Drawing.Size(694, 157);
             this.listViewFriend2.TabIndex = 1;
             this.listViewFriend2.UseCompatibleStateImageBehavior = false;
+            this.listViewFriend2.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.listViewFriend2_ItemDrag);
             this.listViewFriend2.DoubleClick += new System.EventHandler(this.listViewFriend2_DoubleClick);
             // 
             // panelFriendList2
             // 
             this.panelFriendList2.BackColor = System.Drawing.SystemColors.Control;
+            this.panelFriendList2.Controls.Add(this.buttonFriendList2);
             this.panelFriendList2.Controls.Add(this.labelFriendList2);
             this.panelFriendList2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelFriendList2.Location = new System.Drawing.Point(0, 164);
+            this.panelFriendList2.Location = new System.Drawing.Point(0, 157);
             this.panelFriendList2.Name = "panelFriendList2";
-            this.panelFriendList2.Size = new System.Drawing.Size(694, 21);
+            this.panelFriendList2.Size = new System.Drawing.Size(694, 29);
             this.panelFriendList2.TabIndex = 0;
             // 
             // labelFriendList2
             // 
             this.labelFriendList2.AutoSize = true;
-            this.labelFriendList2.Location = new System.Drawing.Point(11, 5);
+            this.labelFriendList2.Location = new System.Drawing.Point(41, 7);
             this.labelFriendList2.Name = "labelFriendList2";
             this.labelFriendList2.Size = new System.Drawing.Size(35, 12);
             this.labelFriendList2.TabIndex = 0;
@@ -366,12 +382,12 @@
             this.popupMenuGoogle,
             this.popupMenuDeleteSpam});
             this.popupMenuSpam.Name = "popupMenuSpam";
-            this.popupMenuSpam.Size = new System.Drawing.Size(221, 92);
+            this.popupMenuSpam.Size = new System.Drawing.Size(218, 92);
             // 
             // popupMenuHome
             // 
             this.popupMenuHome.Name = "popupMenuHome";
-            this.popupMenuHome.Size = new System.Drawing.Size(220, 22);
+            this.popupMenuHome.Size = new System.Drawing.Size(217, 22);
             this.popupMenuHome.Text = "ホーム(&H)";
             this.popupMenuHome.Click += new System.EventHandler(this.popupMenuHome_Click);
             // 
@@ -379,23 +395,32 @@
             // 
             this.popupMenuSearchFacebook.Name = "popupMenuSearchFacebook";
             this.popupMenuSearchFacebook.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.popupMenuSearchFacebook.Size = new System.Drawing.Size(220, 22);
+            this.popupMenuSearchFacebook.Size = new System.Drawing.Size(217, 22);
             this.popupMenuSearchFacebook.Text = "Facebook検索(&F)";
             this.popupMenuSearchFacebook.Click += new System.EventHandler(this.popupMenuSearchFacebook_Click);
             // 
             // popupMenuGoogle
             // 
             this.popupMenuGoogle.Name = "popupMenuGoogle";
-            this.popupMenuGoogle.Size = new System.Drawing.Size(220, 22);
+            this.popupMenuGoogle.Size = new System.Drawing.Size(217, 22);
             this.popupMenuGoogle.Text = "google検索(&G)";
             this.popupMenuGoogle.Click += new System.EventHandler(this.popupMenuGoogle_Click);
             // 
             // popupMenuDeleteSpam
             // 
             this.popupMenuDeleteSpam.Name = "popupMenuDeleteSpam";
-            this.popupMenuDeleteSpam.Size = new System.Drawing.Size(220, 22);
+            this.popupMenuDeleteSpam.Size = new System.Drawing.Size(217, 22);
             this.popupMenuDeleteSpam.Text = "削除(&D)";
             this.popupMenuDeleteSpam.Click += new System.EventHandler(this.popupMenuDeleteSpam_Click);
+            // 
+            // buttonFriendList2
+            // 
+            this.buttonFriendList2.Image = ((System.Drawing.Image)(resources.GetObject("buttonFriendList2.Image")));
+            this.buttonFriendList2.Location = new System.Drawing.Point(3, 2);
+            this.buttonFriendList2.Name = "buttonFriendList2";
+            this.buttonFriendList2.Size = new System.Drawing.Size(32, 23);
+            this.buttonFriendList2.TabIndex = 2;
+            this.buttonFriendList2.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -407,7 +432,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Spam Friend";
+            this.Text = "Spam Friend　Ver b0.0.2 2013.07.20-2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -468,6 +493,8 @@
         private System.Windows.Forms.ToolStripMenuItem MainMenuTool;
         private System.Windows.Forms.ToolStripMenuItem MainMenuSearch;
         private System.Windows.Forms.ToolStripMenuItem MainFormFind;
+        private System.Windows.Forms.Button buttonFriendList1;
+        private System.Windows.Forms.Button buttonFriendList2;
 
     }
 }

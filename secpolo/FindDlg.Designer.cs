@@ -55,6 +55,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FindDlg";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FindDlg";
             this.ResumeLayout(false);
             this.PerformLayout();

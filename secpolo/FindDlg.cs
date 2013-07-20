@@ -24,6 +24,10 @@ namespace secpolo {
                 DialogResult = DialogResult.OK;
                 return;
             }
+            if (e.KeyCode == Keys.Escape){
+                DialogResult = DialogResult.Cancel;
+                return;
+            }
         }
     }
 }

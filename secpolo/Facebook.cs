@@ -58,6 +58,7 @@ namespace secpolo {
 
             //画像URL取得
             url = String.Format("{0}/{1}?fields=picture", GraphUrl, id);
+            //url = String.Format("{0}/{1}/picture?type=normal", GraphUrl, id);
             json = Util.Request(url);
             var jpg = "";
             if (json != null){
