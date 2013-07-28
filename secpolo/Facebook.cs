@@ -8,8 +8,8 @@ namespace secpolo {
     public class Facebook{
 
         private const String RedirectUrl = "http://www.sapporoworks.ne.jp/spw/";
-        private const String AppId = "611601805540392";
-        private const String AppSecret = "61bfcc082d7d966468da7ec21c9e88e5";
+        private const String AppId = "195626017268869";
+        private const String AppSecret = "ae91aea5977b0cd82509643730295009";
         private String GraphUrl = "https://graph.facebook.com/"; 
 
         private readonly FacebookAuth _facebookAuth;

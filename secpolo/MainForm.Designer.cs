@@ -44,6 +44,7 @@
             this.labelFriendList1 = new System.Windows.Forms.Label();
             this.listViewFriend2 = new System.Windows.Forms.ListView();
             this.panelFriendList2 = new System.Windows.Forms.Panel();
+            this.buttonFriendList2 = new System.Windows.Forms.Button();
             this.labelFriendList2 = new System.Windows.Forms.Label();
             this.panelFriend = new System.Windows.Forms.Panel();
             this.textBoxUName = new System.Windows.Forms.TextBox();
@@ -60,7 +61,6 @@
             this.popupMenuSearchFacebook = new System.Windows.Forms.ToolStripMenuItem();
             this.popupMenuGoogle = new System.Windows.Forms.ToolStripMenuItem();
             this.popupMenuDeleteSpam = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonFriendList2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -264,6 +264,15 @@
             this.panelFriendList2.Size = new System.Drawing.Size(694, 29);
             this.panelFriendList2.TabIndex = 0;
             // 
+            // buttonFriendList2
+            // 
+            this.buttonFriendList2.Image = ((System.Drawing.Image)(resources.GetObject("buttonFriendList2.Image")));
+            this.buttonFriendList2.Location = new System.Drawing.Point(3, 2);
+            this.buttonFriendList2.Name = "buttonFriendList2";
+            this.buttonFriendList2.Size = new System.Drawing.Size(32, 23);
+            this.buttonFriendList2.TabIndex = 2;
+            this.buttonFriendList2.UseVisualStyleBackColor = true;
+            // 
             // labelFriendList2
             // 
             this.labelFriendList2.AutoSize = true;
@@ -413,15 +422,6 @@
             this.popupMenuDeleteSpam.Text = "削除(&D)";
             this.popupMenuDeleteSpam.Click += new System.EventHandler(this.popupMenuDeleteSpam_Click);
             // 
-            // buttonFriendList2
-            // 
-            this.buttonFriendList2.Image = ((System.Drawing.Image)(resources.GetObject("buttonFriendList2.Image")));
-            this.buttonFriendList2.Location = new System.Drawing.Point(3, 2);
-            this.buttonFriendList2.Name = "buttonFriendList2";
-            this.buttonFriendList2.Size = new System.Drawing.Size(32, 23);
-            this.buttonFriendList2.TabIndex = 2;
-            this.buttonFriendList2.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -432,7 +432,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "Spam Friend　Ver b0.0.2 2013.07.20-2";
+            this.Text = "Spam Friend　Ver b0.0.3 2013.07.29";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
